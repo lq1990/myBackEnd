@@ -14,7 +14,7 @@ $ psql --version
 $ psql -l
 $ createdb mydb
 $ psql -l
-$ psql mydb // open mydb
+$ psql mydb   // open mydb
 > help
 > \h
 > \?
@@ -22,10 +22,40 @@ $ psql mydb // open mydb
 > \q
 
 $ psql mydb
-> select now(); // don't forget ;
+> select now();   // don't forget ;
 > select version();
 > \q
 
 $ dropdb mydb
 $ psql -l
 ```
+### 03. table
+
+- create table
+- drop table
+- psql
+```
+$ sudo su postgres
+$ createdb mydb
+$ psql -l
+$ psql mydb
+> create table posts (title varchar(255), content text);
+> \dt   // view the table
+> \d   // view posts
+> alter table posts rename to myposts;
+> \dt
+> drop table myposts;    // don't use it normally
+> \dt
+> \q
+
+$ nano db.sql
+...
+create table posts (title varchar(255), content text);
+...
+
+$ psql mydb
+> \i db.sql   // import db.sql, this way to create is better.
+> \dt
+
+```
+
