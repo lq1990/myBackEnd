@@ -5,7 +5,7 @@
 $ sudo apt-get install postgresql
 $ psql --version
 
-$ nmap 127.0.0.1 => view ports
+$ nmap 127.0.0.1 // view ports
 ```
 ### 02. begin to learn psql
 ```
@@ -14,15 +14,18 @@ $ psql --version
 $ psql -l
 $ createdb mydb
 $ psql -l
-$ psql mydb
+$ psql mydb // open mydb
 > help
 > \h
 > \?
 > \l
 > \q
+
 $ psql mydb
-> select now();
+> select now(); // don't forget ;
 > select version();
 > \q
 
+$ dropdb mydb
+$ psql -l
 ```
