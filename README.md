@@ -1,4 +1,4 @@
 # myBackEnd
-Web/App/DbServer. PostgreSql
+Web/App/DbServer
 
 ## NodeJS
