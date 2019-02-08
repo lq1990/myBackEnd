@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学生管理系统</title>
+    <style>
+      table {
+        width: 700px;
+      }
+      table,
+      tr,
+      td,
+      th {
+        border-collapse: collapse;
+        border: 1px solid #aaa;
+      }
+      section {
+        width: 700px;
+        margin: 0 auto;
+      }
+      tr:first-child {
+        background-color: skyblue;
+      }
+      #biaoge2 {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>学生管理系统</h1>
+      <p>
+        <a href="/add" target="_blank">增加学生</a>
+      </p>
+      <h3>来自ejs的模板填充</h3>
+      <table id="biaoge1">
+        <!-- biaoge1 使用模板引擎读数据 -->
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>籍贯</th>
+        </tr>
+        <% for(var i=0; i < arr.length; i++) { %>
+        <tr>
+          <td><%= arr[i].uname %></td>
+          <td><%= arr[i].age %></td>
+          <td><%= arr[i].sex %></td>
+          <td><%= arr[i].province %></td>
+        </tr>
+        <% } %>
+      </table>
+      <br>
+
+      <h3>来自ajax的模板填充</h3>
+      <table id="biaoge2">
+        <!-- biaoge2 使用ajax读数据。就需要接口
+        localhost:3000/allstudent -->
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>籍贯</th>
+        </tr>
+      </table>
+    </section>
+
+    <script type="text/template" id="mytemplate">
+      <tr>
+        <td>@@= name @@</td>
+        <td>@@= age @@</td>
+        <td>@@= sex @@</td>
+        <td>@@= province @@</td>
+      </tr>
+    </script>
+
+    <script src="/jquery-3.3.1.min.js"></script>
+    <script src="/myunderscore.min.js"></script>
+    <script>
+      // 得到模板html内容
+      var templatehtml = $('#mytemplate').html();
+
+      // 模板编译函数
+      var compiler = _.template(templatehtml);
+
+      // 除了第一次的 / 请求， 第二次请求 /allstudent
+      $.get("/allstudent",function (data) {
+        _.each(data.results, function (dict) {
+          var str = compiler({
+            name: dict.uname,
+            age: dict.age,
+            sex: dict.sex,
+            province: dict.province
+          });
+
+          // 上dom
+          $(str).appendTo("#biaoge2");
+        })
+      });
+
+    </script>
+  </body>
+</html>

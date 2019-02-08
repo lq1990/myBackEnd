@@ -1,0 +1,16 @@
+{
+  "name": "proj_order",
+  "version": "1.0.0",
+  "description": "订餐系统，将用户的订单直接ajax保存到文本文件中",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}

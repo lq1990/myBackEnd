@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= num %>数字查询结果</title>
+    <!-- <link rel="stylesheet" href="/css/bootstrap.css" /> -->
+    <!-- 建议href中用绝对路径，因为nodejs的路由并不是 物理资源路径 -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">因数计算器</span>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">首页</a></li>
+          <li class="breadcrumb-item active"><a href="#">查询结果</a></li>
+        </ol>
+      </div>
+      <p>
+        <%= num %>的因数如下（查询用时：<%= during %> ms）：
+      </p>
+      <ul>
+        <% for(var i=0; i < result.length ; i++) {
+          %>
+        <li>
+          <%= result[i] %>
+        </li>
+
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

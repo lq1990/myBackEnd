@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>约数计算器</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle">
+            <span>toggle nav</span>
+            <a href="#" class="navbar-brand">约数计算器</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <div class="row">
+        <h3>本系统可以查询1~10000 之内的所有数字的因数</h3>
+        <p>请输入需要查询的数字：</p>
+        <p><input type="number" id="numbertxt" class="form-control" /></p>
+        <p>
+          <button type="button" id="btn" class="btn btn-info">search</button>
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://code..com/-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+        $("#btn").click(function () {
+            // 查询按钮其实是一个跳转按钮
+            var num = $("#numbertxt").val();
+            if(num>100000) {
+              alert("太大了！");
+              return;
+            }
+            window.location = "/"+num;
+        });
+    </script>
+  </body>
+</html>

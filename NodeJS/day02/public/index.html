@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>index</title>
+    <style>
+      body h2 {
+        margin-top: 100px;
+        text-align: center;
+      }
+      body div {
+        margin: 0 auto;
+      }
+      body div div {
+        width: 182px;
+        margin: 9px 0 0 8px;
+        display: inline-block;
+        color: white;
+      }
+      input {
+        width: 130px;
+      }
+      .btn1, .btn2, .btn3 {
+        width: 100%;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h2>index html</h2>
+
+    <div style="background-color:  #ff9645; width: 200px; height: 160px;">
+      <div>姓名：<input type="text" name="name" /></div>
+      <div>年龄：<input type="text" name="age" /></div>
+      <div><button class="btn1">get 04</button></div>
+      <div><button class="btn2">post 05</button></div>
+      <div>upload<input type="file" name="img"></div>
+    </div>
+
+    <script>
+      
+      $('.btn1').click(function() {
+        // 读取表单
+        var name = $('input[name=name]').val();
+        var age = $('input[name=age]').val();
+
+        // 发送请求 get, post
+        $.get(
+          '/addStudent',
+          {
+            name: name,
+            age: age
+          },
+          function(data) {
+            // 接受来自后端的消息
+            if(data=="success") {
+              alert("学生成功添加！");
+            } else {
+              alert("服务器错误！");
+            }
+          }
+        );
+      });
+      $('.btn2').click(function() {
+        // 读取表单
+        var name = $('input[name=name]').val();
+        var age = $('input[name=age]').val();
+
+        // 发送请求 get, post
+        $.post(
+          '/addStudent',
+          {
+            name: name,
+            age: age
+          },
+          function(data) {
+            // 接受来自后端的消息
+            if(data=="success") {
+              alert("学生成功添加！");
+            } else {
+              alert("服务器错误！");
+            }
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

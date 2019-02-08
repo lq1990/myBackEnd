@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>order a meal</title>
+    <style>
+      .box {
+        width: 800px;
+        height: 400px;
+        border: 1px solid #000;
+        margin: 0 auto;
+        background: -webkit-linear-gradient(top, skyblue, white);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      input {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>订餐</h1>
+      <p>
+        电话:
+      </p>
+      <p>
+        <input type="text" name="phone" />
+      </p>
+      <p>
+        吃什么：
+      </p>
+      <p>
+        <input type="text" name="meal" />
+      </p>
+      <p>
+        <input type="button" value="确定" id="btn" />
+      </p>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $("#btn").click(function () {
+            var phone = $("input[name=phone]").val();
+            var meal = $("input[name=meal]").val();
+            $.post()
+        })
+    </script>
+  </body>
+</html>

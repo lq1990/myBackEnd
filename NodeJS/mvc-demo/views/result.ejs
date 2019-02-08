@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>result page</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle">
+            <span>toggle nav</span>
+            <a href="#" class="navbar-brand">约数计算器</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <h2>result:</h2>
+    <p>查询耗时：<%= during %> 毫秒 </p>
+    <p>数字 <%= number %>的因数如下：</p>
+
+    <ul>
+      <% for(var i=0; i < resList.length; i++) { %>
+      <li><%= resList[i] %></li>
+
+      <% } %>
+    </ul>
+  </body>
+</html>

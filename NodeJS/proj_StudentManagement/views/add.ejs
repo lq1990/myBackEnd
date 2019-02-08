@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>增加学生</title>
+    <style>
+      section {
+        width: 700px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>
+        uname:
+        <input type="text" id="uname" />
+      </p>
+      <p>
+        age:
+        <input type="text" id="age" />
+      </p>
+      <p>
+        sex:
+        <input type="radio" id="sex" value="male" name="sex" />
+        <input type="radio" id="sex" value="female" name="sex" />
+      </p>
+      <p>
+        province:
+        <input type="text" id="province" />
+      </p>
+      <p>
+        <input type="button" value="确认" id="btn" />
+      </p>
+    </section>
+
+    <script src="/jquery-3.3.1.min.js"></script>
+    <script>
+      $('#btn').click(function() {
+        $.post(
+          '/add',
+          {
+            uname: $('#uname').val(),
+            age: parseInt($('#age').val()),
+            sex: $('input[name=sex]:checked').val(),
+            province: $('#province').val()
+          },
+          function(info) {
+            alert(info);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
